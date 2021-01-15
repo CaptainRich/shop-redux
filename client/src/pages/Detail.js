@@ -41,7 +41,7 @@ function Detail() {
 //const [state, dispatch] = useStoreContext();                 //retrieve the current state from the global object
 
 // For Redux we need to use the selector and dispatch methods.  'useSelector' accepts a single function, which is referred to as the 'selector function'.  The selector function takes the entire Redux store as its argument, reads some value from the state, and returns the result.
-const state = useSelector( state => state );                 // get the current state
+const state = useSelector( (state) => state );                 // get the current state
 
 // Get the store's dispatch method
 const dispatch = useDispatch();

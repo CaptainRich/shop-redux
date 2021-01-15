@@ -17,7 +17,7 @@ from a React Context API to a Redux application.
 ## 2.0) Create the global store and adjust reducers.js
 
 2.1) In \src\utils, create store.js and import 'createStore' from 'redux'.  Export the reducer.
-2.2) In \src\reducer.js, remove the 'react' import and the useReducer function.  Initialize the global state and export the reducer.  (Global state can be initialized by copying the code from 'globalState.js', which isn't needed any longer.  Delete globalState.js.)
+2.2) In \src\reducer.js, remove the 'react' import and the useReducer function.  Initialize the global state.  Update the 'reducer' function's argument such that 'state' equals 'initialState' and 'action' is the second argument. Then export the reducer.  (Global state can be initialized by copying the code from 'globalState.js', which isn't needed any longer.  Delete globalState.js.)
 
 
 ## 3.0) Adjust 'app.js' to use the Redux store instead of the React Context store.

@@ -31,10 +31,12 @@ const Cart = () => {
     // const [state, dispatch] = useStoreContext();   // establish a 'state' variable from the global store.
 
     // For Redux we need to use the selector and dispatch methods.  'useSelector' accepts a single function, which is referred to as the 'selector function'.  The selector function takes the entire Redux store as its argument, reads some value from the state, and returns the result.
-    const state = useSelector( state => state );                 // get the current state
+    const state = useSelector( (state) => state );                 // get the current state
 
     // Get the store's dispatch method
     const dispatch = useDispatch();
+
+    // Get the data from the cart.
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
     // Check if there is data in the global state, if not retrieve it from local storage (IndexedDB).
