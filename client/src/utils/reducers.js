@@ -1,7 +1,7 @@
 
 
 // Import the React hooks needed
-import { useReducer } from 'react';
+//import { useReducer } from 'react';
 
 // Import the defined actions
 import {
@@ -15,6 +15,15 @@ import {
     CLEAR_CART,
     TOGGLE_CART
   } from "./actions";
+
+  // Create the initial state for Redux
+  const initialState = {
+    products: [],
+    cart: [],
+    cartOpen: false,
+    categories: [],
+    currentCategory: '',
+  }
   
   export const reducer = (state, action) => {
       switch (action.type) {
@@ -102,6 +111,9 @@ import {
 
   
   // Initialize the global state and provide functionality to update this state.
-  export function useProductReducer(initialState) {
-    return useReducer(reducer, initialState);
-  }
+  // export function useProductReducer(initialState) {
+  //   return useReducer(reducer, initialState);
+  // }
+
+  // Export the default reducer for Redux.
+  export default reducer;

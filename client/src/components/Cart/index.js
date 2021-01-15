@@ -5,7 +5,9 @@ import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
 import './style.css';
 
-import { useStoreContext } from '../../utils/GlobalState';
+//import { useStoreContext } from '../../utils/GlobalState';      // Switch from React Context to
+import { useDispatch, useSelector } from "react-redux";           // Redux
+
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 
 // Import the helper function to deal with the local (off-line) database.
@@ -26,7 +28,13 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
 
-    const [state, dispatch] = useStoreContext();   // establish a 'state' variable from the global store.
+    // const [state, dispatch] = useStoreContext();   // establish a 'state' variable from the global store.
+
+    // For Redux we need to use the selector and dispatch methods.  'useSelector' accepts a single function, which is referred to as the 'selector function'.  The selector function takes the entire Redux store as its argument, reads some value from the state, and returns the result.
+    const state = useSelector( state => state );                 // get the current state
+
+    // Get the store's dispatch method
+    const dispatch = useDispatch();
     const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
     // Check if there is data in the global state, if not retrieve it from local storage (IndexedDB).
@@ -77,10 +85,9 @@ const Cart = () => {
         getCheckout({
             variables: { products: productIds }
           });
-      }
+    }
 
-
-
+/////////////////////////////////////////////////////////////////////////////////////////
 
 
     if (!state.cartOpen) {

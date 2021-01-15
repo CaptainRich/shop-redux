@@ -2,7 +2,9 @@
 
 import React from 'react';
 
-import { useStoreContext } from '../../utils/GlobalState';
+//import { useStoreContext } from '../../utils/GlobalState';      // Switch from React Context to
+import { useDispatch } from "react-redux";                        // Redux
+
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 
 // Import the helper function to deal with the local (off-line) database.
@@ -11,7 +13,10 @@ import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
 
-  const [, dispatch] = useStoreContext();
+    // const [state, dispatch] = useStoreContext();   // establish a 'state' variable from the global store.
+
+    // Get the store's dispatch method
+    const dispatch = useDispatch();
 
   // Function to remove an item from the cart
   const removeFromCart = item => {

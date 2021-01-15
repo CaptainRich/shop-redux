@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from '@apollo/react-hooks';
 
 
-// Import the action and context Hook functionality
-import { useStoreContext } from "../utils/GlobalState";
+// Import the action and context Hook functionality (Not needed for Redux)
+//import { useStoreContext } from "../utils/GlobalState";
 
 // Import the helper function to deal with the local (off-line) database.
 import { idbPromise } from "../utils/helpers";
@@ -20,6 +20,7 @@ import {
 import { QUERY_PRODUCTS } from "../utils/queries";
 import spinner from '../assets/spinner.gif'
 import Cart from '../components/Cart';
+import { useDispatch, useSelector } from "react-redux";
 
 function Detail() {
   // const { id } = useParams();
@@ -36,7 +37,17 @@ function Detail() {
   //   }
   // }, [products, id]);
 
-const [state, dispatch] = useStoreContext();                 //retrieve the current state from the global object
+// Not needed for Redux
+//const [state, dispatch] = useStoreContext();                 //retrieve the current state from the global object
+
+// For Redux we need to use the selector and dispatch methods.  'useSelector' accepts a single function, which is referred to as the 'selector function'.  The selector function takes the entire Redux store as its argument, reads some value from the state, and returns the result.
+const state = useSelector( state => state );                 // get the current state
+
+// Get the store's dispatch method
+const dispatch = useDispatch();
+
+
+
 const { id } = useParams();
 
 const { products, cart } = state;                            // destructure from 'state' for simpler referencing

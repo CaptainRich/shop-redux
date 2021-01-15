@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
 
 // To maintain the global 'store'.
-import { useStoreContext } from '../../utils/GlobalState';
+//import { useStoreContext } from '../../utils/GlobalState';      // Switch from React Context to
+import { useDispatch, useSelector } from "react-redux";           // Redux
+
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 
 // Import the helper function to deal with the local (off-line) database.
@@ -20,7 +22,14 @@ function ProductItem(item) {
   } = item;
 
   
-  const [state, dispatch] = useStoreContext();   // establish a 'state' variable from the global store.
+  // const [state, dispatch] = useStoreContext();   // establish a 'state' variable from the global store.
+  
+  // For Redux we need to use the selector and dispatch methods.  'useSelector' accepts a single function, which is referred to as the 'selector function'.  The selector function takes the entire Redux store as its argument, reads some value from the state, and returns the result.
+  const state = useSelector( state => state );                 // get the current state
+
+  // Get the store's dispatch method
+  const dispatch = useDispatch();
+
   const { cart } = state;
 
 

@@ -1,5 +1,5 @@
-# Book Search Engine (Refactoring)
-(Richard Ay - December-January 2020/21)
+# Shop-Shop Redux (A conversion from React Context to Redux)
+(Richard Ay - January 2021)
 
 
 ## Table of Contents
@@ -37,20 +37,21 @@ Given an e-commerce platform that uses Redux to manage global state:
 * NodeJS, Express.JS
 * MongoDB
 * Redux
+* React
 
 
 
 ## Deployment Link
-The deployment link on Heroku is: https://book-search-ay.herokuapp.com   
-[Heroku](https://book-search-ay.herokuapp.com/) 
+The deployment link on Heroku is: https://shop-redux-ay.herokuapp.com   
+[Heroku](https://shop-redux-ay.herokuapp.com/) 
 
 
 
 ## Application Screen Shot
 
-![Book-Search Image 1](./assets/images/search-results.jpg) Image of search results.
+![Shopping Image 1](./assets/images/search-results.jpg) Image of search results.
 
-![Book-Search Image 2](./assets/images/saved-books.jpg) Image of saved books.
+![Shopping Image 2](./assets/images/saved-books.jpg) Image of saved books.
 
 
 
